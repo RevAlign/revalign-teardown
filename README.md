@@ -60,16 +60,21 @@ Same brief either way — the fresh mode just sees the last few weeks the mirror
 ## Install
 
 ```bash
-pip install revalign-teardown            # runtime is Python standard library only
+# straight from GitHub (works today):
+pip install "git+https://github.com/RevAlign/revalign-teardown"
+# or, once it's on PyPI:
+pip install revalign-teardown
 
 revalign-teardown company "Eight Sleep"  # default: reads fcc.report, no setup
 revalign-teardown resolve "Eight Sleep"  # just show the FCC grantee match
 ```
 
-For the fresh, live-FCC mode:
+The default path is Python standard library only — nothing to configure. For the
+fresh, live-FCC mode (recommended when you want the newest filings), add the
+browser extra:
 
 ```bash
-pip install "revalign-teardown[browser]"
+pip install "revalign-teardown[browser] @ git+https://github.com/RevAlign/revalign-teardown"
 playwright install chromium
 revalign-teardown company "Eight Sleep" --browser
 ```
