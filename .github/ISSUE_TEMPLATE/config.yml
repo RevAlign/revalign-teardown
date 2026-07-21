@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Question or idea (Discussions)
+    url: https://github.com/RevAlign/revalign-dependents/discussions
+    about: For open-ended questions, ideas, and show-and-tell. Bugs and new-ecosystem proposals go in issues.
+  - name: The wired-up, enriched version (RevAlign)
+    url: https://revalign.io
+    about: This CLI is the free, top-of-funnel scanner. Contact enrichment, firmographics, exhaustive enumeration, and freshness signal live behind the paid wrap. Reach out at jordan@revalign.io.

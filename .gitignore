@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+.venv/
+venv/
+env/
+
+# Build scratch: raw FCC exhibit downloads + intermediate rasterized photos.
+# The committed, shipped index is web/data/index.json (kept); raw cache is not.
+.cache/
+raw/
+raw_*/
+tmp/
+
+# Secrets -- never commit tokens or keys
+.env
+.env.*
+!.env.example
+*.token
+*.key
+*.pem
+*.p12
+*.secret
+
+# Internal working docs (never ship in the public repo)
+BUILD-SPEC.md
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

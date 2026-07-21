@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "revalign-teardown"
+version = "0.1.0"
+description = "A visual wall of real internal teardown photos of barely-released hardware, pulled from FCC certification filings, with the FCC ID on every card as a self-verifiable receipt."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "RevAlign", email = "jordan@revalign.io" }]
+keywords = [
+    "fcc", "fcc-id", "teardown", "hardware", "equipment-authorization",
+    "gtm", "sales-intelligence", "competitive-intelligence", "pre-launch-signal",
+    "product-launch", "public-data", "open-data",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+    "Intended Audience :: Developers",
+]
+# Pipeline is stdlib-first. The one optional build-time extra (PDF rasterization)
+# lives in [project.optional-dependencies]; the shipped web artifact has zero deps.
+dependencies = []
+
+[project.optional-dependencies]
+# Fresh-from-the-FCC mode (`company --browser`): drives a headful Chrome past the
+# Akamai wall. The default fcc.report path needs none of this.
+browser = ["playwright>=1.40"]
+# Only needed to rasterize FCC internal-photo PDFs into gallery thumbnails.
+build = ["pymupdf>=1.24"]
+dev = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://revalign.io"
+Repository = "https://github.com/RevAlign/revalign-teardown"
+
+[project.scripts]
+revalign-teardown = "revalign_teardown.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["revalign_teardown*"]
